@@ -42,3 +42,4 @@ A star (*) next to a name means that the command is disabled.
  unset [-f] [-v] [name ...]         until COMMANDS; do COMMANDS; done
  variables - Some variable names an wait [n]
  while COMMANDS; do COMMANDS; done  { COMMANDS ; }
+git add - p -kokeilu kakkonen
