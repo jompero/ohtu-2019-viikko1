@@ -65,4 +65,54 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void constructor() {
+        new Varasto(1d, 1d);
+    }
+
+    @Test
+    public void constructorExcess() {
+        new Varasto(1d, 2d);
+    }
+
+    @Test
+    public void constructorUseless() {
+        new Varasto(-1d, -1d);
+    }
+
+    @Test
+    public void constructorSingleParameter() {
+        new Varasto(-1d);
+    }
+
+    @Test
+    public void fillNegative() {
+        varasto.lisaaVarastoon(3d);
+        varasto.lisaaVarastoon(-1d);
+        assertEquals(3d, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void fillTooMuch() {
+        varasto.lisaaVarastoon(20d);
+        assertEquals(10d, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void takeNegative() {
+        varasto.lisaaVarastoon(5d);
+        varasto.otaVarastosta(-5d);
+        assertEquals(5d, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void giveMeEverything() {
+        varasto.lisaaVarastoon(10d);
+        assertEquals(10d, varasto.otaVarastosta(20d), vertailuTarkkuus);
+    }
+
+    @Test
+    public void toStringTest() {
+        assertEquals("saldo = 0.0, vielä tilaa 10.0", varasto.toString());
+    }
 }
