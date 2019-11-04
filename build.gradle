@@ -6,6 +6,10 @@
  * user guide available at https://guides.gradle.org/creating-new-gradle-builds/
  */
 
+plugins {
+    id 'checkstyle'
+}
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
@@ -17,6 +21,8 @@ apply plugin: "jacoco"
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
+
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
